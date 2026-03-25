@@ -1,0 +1,59 @@
+---
+const techs = [
+  { name: "PHP",        icon: "https://cdn.simpleicons.org/php/8892BF" },
+  { name: "Laravel",    icon: "https://cdn.simpleicons.org/laravel/FF2D20" },
+  { name: "MySQL",      icon: "https://cdn.simpleicons.org/mysql/4479A1" },
+  { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript/F7DF1E" },
+  { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
+  { name: "HTML5",      icon: "https://cdn.simpleicons.org/html5/E34F26" },
+  { name: "CSS3",       icon: "https://cdn.simpleicons.org/css3/1572B6" },
+  { name: "Bootstrap",  icon: "https://cdn.simpleicons.org/bootstrap/7952B3" },
+  { name: "Git",        icon: "https://cdn.simpleicons.org/git/F05032" },
+  { name: "GitHub",     icon: "https://cdn.simpleicons.org/github/FFFFFF" },
+];
+
+// Duplicamos para el loop infinito sin JS
+const doubled = [...techs, ...techs];
+---
+
+<section class="py-10 border-y border-gray-800/40 bg-gray-900/20" aria-label="Tecnologías">
+  <!-- Label superior -->
+  <p class="text-center text-xs font-mono text-gray-600 tracking-widest uppercase mb-6">
+    Stack tecnológico
+  </p>
+
+  <!-- Marquee con fade en los bordes -->
+  <div
+    class="overflow-hidden"
+    style="mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+           -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);"
+  >
+    <div class="marquee-track" role="list">
+      {doubled.map((tech) => (
+        <div
+          role="listitem"
+          class="group flex flex-col items-center gap-2.5 px-5 sm:px-7 select-none cursor-default"
+        >
+          <!-- Tarjeta del icono -->
+          <div class="w-14 h-14 sm:w-16 sm:h-16 bg-gray-900 border border-gray-800 rounded-xl flex items-center justify-center p-3
+                      group-hover:border-cyan-400/40 group-hover:bg-gray-800 group-hover:shadow-lg group-hover:shadow-cyan-400/5
+                      transition-all duration-300">
+            <img
+              src={tech.icon}
+              alt={tech.name}
+              width="36"
+              height="36"
+              draggable="false"
+              loading="lazy"
+              class="w-7 h-7 sm:w-8 sm:h-8 object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+            />
+          </div>
+          <!-- Nombre -->
+          <span class="text-gray-600 group-hover:text-gray-400 text-xs font-mono transition-colors duration-200 whitespace-nowrap">
+            {tech.name}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

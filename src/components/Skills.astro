@@ -1,0 +1,51 @@
+---
+const skills = [
+  {
+    category: "Backend",
+    icon: "⚙️",
+    items: ["PHP", "Laravel", "MySQL", "Arquitectura MVC", "APIs REST"],
+  },
+  {
+    category: "Frontend",
+    icon: "🎨",
+    items: ["JavaScript", "jQuery", "AJAX", "HTML5", "CSS3", "Tailwind CSS"],
+  },
+  {
+    category: "Servidores y Despliegue",
+    icon: "🖥️",
+    items: ["Apache", "IIS", "Linux", "cPanel", "Entornos institucionales"],
+  },
+  {
+    category: "Herramientas",
+    icon: "🛠️",
+    items: ["Git", "GitHub", "AdminLTE", "Blade (Laravel)", "Sistemas en producción"],
+  },
+];
+---
+<section id="habilidades" class="py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="mb-12" data-fade-left>
+      <p class="text-cyan-400 font-mono text-sm mb-2">02.</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">Habilidades</h2>
+      <div class="w-12 h-0.5 bg-cyan-400 mt-3"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      {skills.map((skill, i) => (
+        <div data-fade style={`--delay: ${i * 0.1}s`} class="group bg-gray-900/60 rounded-xl p-6 border border-gray-800 hover:border-cyan-400/30 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-5">
+            <span class="text-2xl">{skill.icon}</span>
+            <h3 class="text-white font-semibold">{skill.category}</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {skill.items.map((item) => (
+              <span class="px-3 py-1.5 bg-gray-800 text-gray-300 text-sm rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors duration-200">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

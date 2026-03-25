@@ -1,0 +1,87 @@
+---
+---
+<header class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800/60">
+  <nav class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#" class="font-mono font-semibold text-lg tracking-tight">
+      <span class="text-cyan-400">SC</span><span class="text-gray-500">/</span>
+    </a>
+
+    <ul class="hidden sm:flex items-center gap-5 md:gap-8 text-xs md:text-sm text-gray-400">
+      <li>
+        <a href="#sobre-mi" class="hover:text-cyan-400 transition-colors duration-200">
+          Sobre mí
+        </a>
+      </li>
+      <li>
+        <a href="#habilidades" class="hover:text-cyan-400 transition-colors duration-200">
+          Habilidades
+        </a>
+      </li>
+      <li>
+        <a href="#proyectos" class="hover:text-cyan-400 transition-colors duration-200">
+          Proyectos
+        </a>
+      </li>
+      <li>
+        <a href="#contacto" class="hover:text-cyan-400 transition-colors duration-200">
+          Contacto
+        </a>
+      </li>
+    </ul>
+
+    <!-- Nav mobile: solo íconos de ancla -->
+    <div class="flex sm:hidden items-center gap-4 text-xs text-gray-500">
+      <a href="#sobre-mi"    class="hover:text-cyan-400 transition-colors">About</a>
+      <a href="#habilidades" class="hover:text-cyan-400 transition-colors">Skills</a>
+      <a href="#proyectos"   class="hover:text-cyan-400 transition-colors">Work</a>
+      <a href="#contacto"    class="hover:text-cyan-400 transition-colors">Contact</a>
+    </div>
+
+    <a
+      href="mailto:saidcarrillo.job@gmail.com"
+      class="hidden md:inline-flex px-4 py-2 border border-cyan-400/50 text-cyan-400 text-sm rounded-lg hover:bg-cyan-400/10 transition-colors duration-200"
+    >
+      Contáctame
+    </a>
+
+    <!-- Theme Toggle Button -->
+    <button
+      id="theme-toggle"
+      type="button"
+      class="ml-4 p-2 rounded-lg text-gray-400 hover:text-cyan-400 hover:bg-gray-800/50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500/50"
+      aria-label="Toggle Dark Mode"
+    >
+      <!-- Sun Icon (shown in dark mode) -->
+      <svg class="icon-sun w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+      </svg>
+      <!-- Moon Icon (shown in light mode) -->
+      <svg class="icon-moon w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+      </svg>
+    </button>
+  </nav>
+</header>
+
+<script>
+  const handleToggleClick = () => {
+    const element = document.documentElement;
+    element.classList.add('theme-transition');
+    
+    const isLight = element.classList.contains('light');
+    if (isLight) {
+      element.classList.remove('light');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      element.classList.add('light');
+      localStorage.setItem('theme', 'light');
+    }
+
+    // Remove the transition class after animation to avoid issues with resizing later
+    setTimeout(() => {
+      element.classList.remove('theme-transition');
+    }, 250);
+  };
+
+  document.getElementById('theme-toggle')?.addEventListener('click', handleToggleClick);
+</script>

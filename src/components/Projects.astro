@@ -1,0 +1,108 @@
+---
+const projects = [
+  {
+    name: "NEXASTORE",
+    subtitle: "Plataforma Web de Ventas",
+    description:
+      "Sistema completo de gestión comercial con control de inventario, clientes, ventas y generación de reportes. Diseñado para entornos de producción.",
+    tech: ["PHP", "JavaScript", "MySQL", "MVC", "AdminLTE"],
+    emoji: "🛒",
+    url: null,
+    featured: true,
+  },
+  {
+    name: "Sistema para Restaurante",
+    subtitle: "Gestión de Pedidos y Cocina",
+    description:
+      "Gestión integral de pedidos, cocina y reportes con interfaz dinámica. Actualizaciones en tiempo real mediante AJAX sin recargar la página.",
+    tech: ["PHP", "MySQL", "AJAX", "jQuery"],
+    emoji: "🍽️",
+    url: null,
+    featured: false,
+  },
+  {
+    name: "Sistema Empresarial",
+    subtitle: "Laravel – Gestión Corporativa",
+    description:
+      "Plataforma de gestión de clientes, facturación y pagos. Arquitectura robusta en Laravel con vistas Blade y separación clara de responsabilidades.",
+    tech: ["Laravel", "PHP", "MySQL", "Blade", "MVC"],
+    emoji: "🏢",
+    url: null,
+    featured: true,
+  },
+  {
+    name: "Livingood",
+    subtitle: "Sitio Web – Constructora",
+    description:
+      "Página web corporativa para empresa constructora. Diseño moderno y responsive, orientado a presentación de servicios y captación de clientes.",
+    tech: ["HTML", "CSS", "Tailwind", "JavaScript"],
+    emoji: "🏗️",
+    url: "https://livingood.xo.je",
+    featured: false,
+  },
+  {
+    name: "Electrovolt",
+    subtitle: "Sitio Web – Electricista",
+    description:
+      "Página web profesional para servicio de electricidad. Incluye catálogo de servicios, galería de trabajos realizados y datos de contacto.",
+    tech: ["HTML", "CSS", "Tailwind", "JavaScript"],
+    emoji: "⚡",
+    url: "https://electrovolt.xo.je",
+    featured: false,
+  },
+];
+---
+<section id="proyectos" class="py-16 md:py-24 bg-gray-900/30">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="mb-12" data-fade-left>
+      <p class="text-cyan-400 font-mono text-sm mb-2">03.</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">Proyectos</h2>
+      <div class="w-12 h-0.5 bg-cyan-400 mt-3"></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {projects.map((project, i) => (
+        <article data-fade style={`--delay: ${i * 0.08}s`} class="group flex flex-col bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-cyan-400/40 transition-all duration-300 hover:-translate-y-1">
+          <div class="flex items-start justify-between mb-4">
+            <span class="text-3xl">{project.emoji}</span>
+            <div class="flex items-center gap-2">
+              {project.featured && (
+                <span class="text-xs font-mono text-cyan-400 bg-cyan-400/10 px-2 py-1 rounded border border-cyan-400/20">
+                  destacado
+                </span>
+              )}
+              {project.url && (
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-gray-500 hover:text-cyan-400 transition-colors duration-200 text-xl leading-none"
+                  title="Ver sitio en vivo"
+                >
+                  ↗
+                </a>
+              )}
+            </div>
+          </div>
+
+          <p class="text-xs font-mono text-gray-500 mb-1">{project.subtitle}</p>
+          <h3 class="text-white font-bold text-lg mb-3 group-hover:text-cyan-400 transition-colors duration-200">
+            {project.name}
+          </h3>
+
+          <p class="text-gray-400 text-sm leading-relaxed flex-1 mb-5">
+            {project.description}
+          </p>
+
+          <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-800">
+            {project.tech.map((t) => (
+              <span class="text-xs font-mono text-cyan-400/80 bg-cyan-400/5 px-2 py-1 rounded border border-cyan-400/10">
+                {t}
+              </span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

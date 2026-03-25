@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import TechStack from '../components/TechStack.astro';
+import About from '../components/About.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
+---
+
+<Layout>
+  <Header />
+  <main>
+    <Hero />
+    <TechStack />
+    <About />
+    <Skills />
+    <Projects />
+    <Contact />
+  </main>
+  <footer class="border-t border-gray-800 py-8">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <p class="text-gray-600 text-sm font-mono">
+        Hecho con <span class="text-cyan-400">Astro</span> &amp;
+        <span class="text-cyan-400">Tailwind CSS</span>
+        &mdash; Said Carrillo &copy; 2025
+      </p>
+    </div>
+  </footer>
+</Layout>

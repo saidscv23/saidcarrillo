@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+html {
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-image: radial-gradient(
+    circle at 20px 20px,
+    rgba(34, 211, 238, 0.03) 2%,
+    transparent 0%
+  );
+  background-size: 40px 40px;
+}
+
+/* ── Keyframes ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes pulseSlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%       { opacity: 0.9; transform: scale(1.1); }
+}
+
+/* ── Hero: animaciones de entrada escalonadas ── */
+.hero-a1 { opacity: 0; animation: fadeInUp 0.65s ease forwards; animation-delay: 0.05s; }
+.hero-a2 { opacity: 0; animation: fadeInUp 0.65s ease forwards; animation-delay: 0.17s; }
+.hero-a3 { opacity: 0; animation: fadeInUp 0.65s ease forwards; animation-delay: 0.29s; }
+.hero-a4 { opacity: 0; animation: fadeInUp 0.65s ease forwards; animation-delay: 0.41s; }
+.hero-a5 { opacity: 0; animation: fadeInUp 0.65s ease forwards; animation-delay: 0.53s; }
+.hero-a6 { opacity: 0; animation: fadeInUp 0.65s ease forwards; animation-delay: 0.65s; }
+.hero-photo { opacity: 0; animation: fadeInRight 0.9s ease forwards; animation-delay: 0.35s; }
+
+/* ── Animaciones continuas ── */
+.animate-float     { animation: floatY 4.5s ease-in-out infinite; }
+.animate-spin-slow { animation: spinSlow 14s linear infinite; }
+.animate-pulse-glow { animation: pulseSlow 3s ease-in-out infinite; }
+
+/* ── Light mode: override de variables de color de Tailwind v4 ── */
+html.light {
+  color-scheme: light;
+
+  --color-gray-50:  #020617;
+  --color-gray-100: #0f172a;
+  --color-gray-200: #1e293b;
+  --color-gray-300: #334155;
+  --color-gray-400: #475569;
+  --color-gray-500: #64748b;
+  --color-gray-600: #94a3b8;
+  --color-gray-700: #cbd5e1;
+  --color-gray-800: #e2e8f0;
+  --color-gray-900: #f1f5f9;
+  --color-gray-950: #ffffff;
+
+  /* Invertir blanco y negro */
+  --color-white: #0f172a;
+  --color-black: #f8fafc;
+
+  /* Cyan más oscuro para mayor contraste en fondo claro */
+  --color-cyan-300: #0e7490;
+  --color-cyan-400: #0891b2;
+  --color-cyan-500: #0e7490;
+}
+
+html.light body {
+  background-image: radial-gradient(
+    circle at 20px 20px,
+    rgba(8, 145, 178, 0.05) 2%,
+    transparent 0%
+  );
+}
+
+/* Transición suave al cambiar tema */
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease !important;
+}
+
+/* Iconos del toggle: se controlan con CSS puro */
+html:not(.light) .icon-sun { display: none; }
+html.light         .icon-moon { display: none; }
+
+/* ── Marquee infinito ── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* ── Scroll: fade-in al entrar al viewport ── */
+[data-fade] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition-delay: var(--delay, 0s);
+}
+[data-fade].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-fade-left] {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  transition-delay: var(--delay, 0s);
+}
+[data-fade-left].visible {
+  opacity: 1;
+  transform: translateX(0);
+}

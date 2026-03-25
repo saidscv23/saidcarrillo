@@ -1,0 +1,75 @@
+---
+---
+<section id="sobre-mi" class="py-16 md:py-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+    <div class="mb-12" data-fade-left>
+      <p class="text-cyan-400 font-mono text-sm mb-2">01.</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">Sobre mí</h2>
+      <div class="w-12 h-0.5 bg-cyan-400 mt-3"></div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+
+      <!-- ── Bio ── -->
+      <div class="lg:col-span-2 space-y-5" data-fade>
+        <!-- Primer párrafo destacado -->
+        <p class="text-gray-200 text-lg leading-relaxed font-medium">
+          Tecnólogo Superior en Desarrollo de Software con más de
+          <span class="text-cyan-400">2 años de experiencia</span> en implementación,
+          soporte y mantenimiento de sistemas en producción.
+        </p>
+
+        <p class="text-gray-400 leading-relaxed">
+          Actualmente me desempeño en <span class="text-gray-200 font-medium">Hardsoft Ecuador</span>,
+          donde tengo a cargo la gestión del sistema de facturación, así como la actualización y
+          administración de plataformas web corporativas.
+        </p>
+
+        <p class="text-gray-400 leading-relaxed">
+          Cuento con experiencia en administración básica de infraestructura tecnológica, despliegue
+          de aplicaciones en servidores locales y cloud, gestión de bases de datos y aseguramiento de
+          la continuidad operativa de los servicios. He trabajado con servidores
+          <span class="text-gray-200 font-medium">Apache e IIS</span>, control de accesos, respaldo
+          de información y soporte técnico a usuarios finales.
+        </p>
+
+        <p class="text-gray-400 leading-relaxed">
+          He participado en el diseño e implementación de soluciones tecnológicas orientadas a la
+          <span class="text-gray-200 font-medium">disponibilidad, estabilidad y mejora continua</span>
+          de sistemas, aportando en entornos críticos e institucionales. Me caracterizo por ser un
+          profesional responsable, analítico y con alta capacidad de aprendizaje, enfocado en la
+          optimización de procesos y la calidad del servicio.
+        </p>
+      </div>
+
+      <!-- ── Highlights ── -->
+      <div class="flex flex-col gap-4" data-fade style="--delay: 0.15s">
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-cyan-400/30 transition-colors duration-300">
+          <p class="text-xs font-mono text-gray-500 mb-1">Empresa actual</p>
+          <p class="text-white font-semibold">Hardsoft Ecuador</p>
+          <p class="text-cyan-400 text-sm mt-0.5">Desarrollador / Soporte TI</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-cyan-400/30 transition-colors duration-300">
+          <p class="text-xs font-mono text-gray-500 mb-1">Formación</p>
+          <p class="text-white font-semibold">Tecnólogo Superior</p>
+          <p class="text-gray-400 text-sm mt-0.5">Desarrollo de Software</p>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-cyan-400/30 transition-colors duration-300">
+          <p class="text-xs font-mono text-gray-500 mb-3">Enfoque</p>
+          <div class="flex flex-wrap gap-2">
+            {["Producción", "Infraestructura", "Bases de datos", "Continuidad operativa", "Seguridad"].map(tag => (
+              <span class="text-xs font-mono text-cyan-400/80 bg-cyan-400/5 border border-cyan-400/10 px-2 py-1 rounded">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
