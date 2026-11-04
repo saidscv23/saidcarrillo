@@ -3,36 +3,51 @@ const skills = [
   {
     category: "Backend",
     icon: "⚙️",
-    items: ["PHP", "Laravel", "MySQL", "Arquitectura MVC", "APIs REST"],
+    items: ["PHP", "Laravel", "Node.js", "Arquitectura MVC", "API REST", "Services y Form Requests", "Roles y permisos (Spatie)", "PDF con DomPDF", "Integración de servicios"],
   },
   {
     category: "Frontend",
     icon: "🎨",
-    items: ["JavaScript", "jQuery", "AJAX", "HTML5", "CSS3", "Tailwind CSS"],
+    items: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "Tailwind CSS", "Alpine.js", "jQuery", "AJAX", "JSON", "Blade", "DataTables", "Vite"],
   },
   {
-    category: "Servidores y Despliegue",
+    category: "Desarrollo móvil",
+    icon: "📱",
+    items: ["Flutter", "Firebase", "Geolocalización y mapas", "Publicación en Google Play y App Store"],
+  },
+  {
+    category: "Facturación electrónica",
+    icon: "🧾",
+    items: ["Servicios del SRI", "Comprobantes electrónicos", "XML", "PDF-RIDE", "Autorización de documentos"],
+  },
+  {
+    category: "Bases de datos",
+    icon: "🗄️",
+    items: ["MySQL", "SQL", "Firebase", "Diseño de bases relacionales"],
+  },
+  {
+    category: "Servidores e infraestructura",
     icon: "🖥️",
-    items: ["Apache", "IIS", "Linux", "cPanel", "Entornos institucionales"],
+    items: ["Apache", "IIS", "cPanel", "Hosting", "Dominios y subdominios", "Windows", "Linux"],
   },
   {
     category: "Herramientas",
     icon: "🛠️",
-    items: ["Git", "GitHub", "AdminLTE", "Blade (Laravel)", "Sistemas en producción"],
+    items: ["Git", "GitHub", "Visual Studio Code", "PowerShell", "AdminLTE"],
   },
 ];
 ---
 <section id="habilidades" class="py-16 md:py-24">
-  <div class="max-w-6xl mx-auto px-6">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <div class="mb-12" data-fade-left>
-      <p class="text-cyan-400 font-mono text-sm mb-2">02.</p>
+      <p class="text-cyan-400 font-mono text-sm mb-2">03.</p>
       <h2 class="text-3xl md:text-4xl font-bold text-white">Habilidades</h2>
       <div class="w-12 h-0.5 bg-cyan-400 mt-3"></div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
       {skills.map((skill, i) => (
-        <div data-fade style={`--delay: ${i * 0.1}s`} class="group bg-gray-900/60 rounded-xl p-6 border border-gray-800 hover:border-cyan-400/30 transition-all duration-300">
+        <div data-fade style={`--delay: ${i * 0.08}s`} class="group bg-gray-900/60 rounded-xl p-6 border border-gray-800 hover:border-cyan-400/30 transition-all duration-300">
           <div class="flex items-center gap-3 mb-5">
             <span class="text-2xl">{skill.icon}</span>
             <h3 class="text-white font-semibold">{skill.category}</h3>

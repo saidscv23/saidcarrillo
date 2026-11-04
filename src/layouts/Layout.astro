@@ -8,8 +8,11 @@ interface Props {
 
 const {
   title = "Said Carrillo – Full Stack Developer",
-  description = "Desarrollador Full Stack con experiencia en PHP, Laravel, JavaScript, MySQL y despliegue en servidores Apache e IIS."
+  description = "Said Carrillo, desarrollador Full Stack en Ibarra, Ecuador. Aplicaciones web y móviles con Laravel y Flutter, facturación electrónica con el SRI y administración de servidores. Creador de Z7Firma."
 } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/foto.png', Astro.site);
 ---
 <!doctype html>
 <html lang="es" class="scroll-smooth">
@@ -17,6 +20,17 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_EC" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

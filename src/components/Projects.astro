@@ -1,98 +1,284 @@
 ---
-const projects = [
+interface Link {
+  label: string;
+  href: string;
+}
+
+interface Project {
+  name: string;
+  subtitle: string;
+  description: string;
+  tech: string[];
+  emoji: string;
+  links: Link[];
+  type?: string;
+  role?: string;
+  highlights?: string[];
+  wide?: boolean;
+}
+
+// Proyecto propio principal
+const z7firma = {
+  name: "Z7Firma",
+  subtitle: "Mi plataforma de facturación electrónica",
+  description:
+    "Plataforma de facturación electrónica para el mercado ecuatoriano, dirigida a emprendedores, profesionales, pequeños negocios y empresas. Es mi producto propio, comercializado por suscripción.",
+  features: [
+    "Emisión de comprobantes electrónicos",
+    "Integración con los servicios del SRI",
+    "Gestión de clientes y comprobantes",
+    "Establecimientos y puntos de emisión",
+    "Estadísticas y reportes de ventas",
+    "Planes, suscripciones y usuarios",
+  ],
+  tags: ["Facturación electrónica", "SRI", "XML", "PDF-RIDE", "SaaS"],
+  url: "https://www.z7firma.com",
+};
+
+// Proyectos desarrollados en Hardsoft Ecuador
+const companyProjects: Project[] = [
+  {
+    name: "Intranet de Gestión de Clientes",
+    subtitle: "Sistema web interno",
+    type: "web",
+    role: "Desarrollador Full Stack · principal contribuidor (+110 commits)",
+    description:
+      "Intranet para administrar la cartera de clientes de la empresa. Centraliza la información comercial, contable y técnica de cada cliente.",
+    highlights: [
+      "Módulos de clientes, facturas, pagos, licencias, actualizaciones, documentos, notas, hosting y dominios",
+      "Dashboard con alertas de vencimiento por cliente y renovación rápida de hosting y dominios",
+      "Control de acceso por roles (Administrador / Usuario) con Spatie Laravel Permission",
+      "Listados optimizados con DataTables del lado del servidor (Yajra) para grandes volúmenes de datos",
+      "Arquitectura con Form Requests, Services, API Resources y componentes Blade reutilizables",
+      "Generación de PDF con DomPDF y validaciones que protegen la integridad de los datos",
+    ],
+    tech: ["Laravel 12", "PHP 8.2", "MySQL", "Blade", "Tailwind CSS", "Alpine.js", "jQuery", "DataTables", "Vite", "Git"],
+    emoji: "🗂️",
+    links: [],
+    wide: true,
+  },
+  {
+    name: "RAVER",
+    type: "móvil",
+    subtitle: "App móvil – Eventos y lugares",
+    description:
+      "Plataforma para descubrir bares, discotecas y eventos. Mapa interactivo con geolocalización, reportes comunitarios del ambiente, votaciones, interacción entre usuarios y sorteos.",
+    tech: ["Flutter", "Laravel", "MySQL", "API REST"],
+    emoji: "🎉",
+    links: [{ label: "raverapp.com", href: "https://raverapp.com/" }],
+  },
+  {
+    name: "Mi CanchaYa",
+    type: "móvil",
+    subtitle: "App móvil – Ecuavóley",
+    description:
+      "App para llevar el marcador, gestionar partidos y registrar estadísticas de Ecuavóley desde el celular. Equipos, jugadores, resultados e historial de encuentros.",
+    tech: ["Flutter", "Firebase"],
+    emoji: "🏐",
+    links: [
+      { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.hardsoftec.volyecuador" },
+      { label: "Sitio web", href: "https://micanchaya.hardsoftecuador.com/" },
+    ],
+  },
+];
+
+const otherProjects: Project[] = [
   {
     name: "NEXASTORE",
-    subtitle: "Plataforma Web de Ventas",
+    subtitle: "Plataforma web de ventas",
     description:
-      "Sistema completo de gestión comercial con control de inventario, clientes, ventas y generación de reportes. Diseñado para entornos de producción.",
+      "Sistema de gestión comercial con control de inventario, productos, clientes, ventas y reportes.",
     tech: ["PHP", "JavaScript", "MySQL", "MVC", "AdminLTE"],
     emoji: "🛒",
-    url: null,
-    featured: true,
+    links: [],
   },
   {
     name: "Sistema para Restaurante",
-    subtitle: "Gestión de Pedidos y Cocina",
+    subtitle: "Pedidos y cocina",
     description:
-      "Gestión integral de pedidos, cocina y reportes con interfaz dinámica. Actualizaciones en tiempo real mediante AJAX sin recargar la página.",
+      "Gestión de pedidos, cocina, órdenes y reportes administrativos. Actualizaciones en tiempo real con AJAX sin recargar la página.",
     tech: ["PHP", "MySQL", "AJAX", "jQuery"],
     emoji: "🍽️",
-    url: null,
-    featured: false,
+    links: [],
   },
   {
     name: "Sistema Empresarial",
-    subtitle: "Laravel – Gestión Corporativa",
+    subtitle: "Laravel – Gestión corporativa",
     description:
-      "Plataforma de gestión de clientes, facturación y pagos. Arquitectura robusta en Laravel con vistas Blade y separación clara de responsabilidades.",
-    tech: ["Laravel", "PHP", "MySQL", "Blade", "MVC"],
+      "Administración de clientes, facturación y control de pagos con interfaces dinámicas y vistas Blade.",
+    tech: ["Laravel", "PHP", "MySQL", "Blade"],
     emoji: "🏢",
-    url: null,
-    featured: true,
+    links: [],
   },
   {
     name: "Livingood",
-    subtitle: "Sitio Web – Constructora",
+    subtitle: "Sitio web – Constructora",
     description:
-      "Página web corporativa para empresa constructora. Diseño moderno y responsive, orientado a presentación de servicios y captación de clientes.",
+      "Página web corporativa para empresa constructora. Diseño moderno y responsive orientado a captar clientes.",
     tech: ["HTML", "CSS", "Tailwind", "JavaScript"],
     emoji: "🏗️",
-    url: "https://livingood.xo.je",
-    featured: false,
+    links: [{ label: "Ver sitio", href: "https://livingood.xo.je" }],
   },
   {
     name: "Electrovolt",
-    subtitle: "Sitio Web – Electricista",
+    subtitle: "Sitio web – Servicios eléctricos",
     description:
-      "Página web profesional para servicio de electricidad. Incluye catálogo de servicios, galería de trabajos realizados y datos de contacto.",
+      "Página web profesional para presentar servicios eléctricos, trabajos realizados y datos de contacto.",
     tech: ["HTML", "CSS", "Tailwind", "JavaScript"],
     emoji: "⚡",
-    url: "https://electrovolt.xo.je",
-    featured: false,
+    links: [{ label: "Ver sitio", href: "https://electrovolt.xo.je" }],
   },
 ];
 ---
 <section id="proyectos" class="py-16 md:py-24 bg-gray-900/30">
-  <div class="max-w-6xl mx-auto px-6">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <div class="mb-12" data-fade-left>
-      <p class="text-cyan-400 font-mono text-sm mb-2">03.</p>
+      <p class="text-cyan-400 font-mono text-sm mb-2">04.</p>
       <h2 class="text-3xl md:text-4xl font-bold text-white">Proyectos</h2>
       <div class="w-12 h-0.5 bg-cyan-400 mt-3"></div>
     </div>
 
+    <!-- ── Z7Firma: proyecto propio destacado ── -->
+    <article data-fade class="relative overflow-hidden bg-gray-900 border border-cyan-400/30 rounded-2xl p-6 md:p-10 mb-16">
+      <div class="absolute -right-24 -top-24 w-72 h-72 bg-cyan-400/10 blur-3xl rounded-full pointer-events-none"></div>
+
+      <div class="relative grid grid-cols-1 lg:grid-cols-5 gap-8">
+        <div class="lg:col-span-3">
+          <div class="flex flex-wrap items-center gap-3 mb-4">
+            <span class="text-xs font-mono text-gray-950 bg-cyan-400 px-2.5 py-1 rounded font-semibold">
+              Proyecto propio
+            </span>
+            <span class="text-xs font-mono text-gray-500">{z7firma.subtitle}</span>
+          </div>
+          <h3 class="text-3xl md:text-4xl font-bold text-white mb-4">{z7firma.name}</h3>
+          <p class="text-gray-400 leading-relaxed mb-6">{z7firma.description}</p>
+
+          <div class="flex flex-wrap gap-2 mb-8">
+            {z7firma.tags.map((t) => (
+              <span class="text-xs font-mono text-cyan-400/80 bg-cyan-400/5 px-2 py-1 rounded border border-cyan-400/10">
+                {t}
+              </span>
+            ))}
+          </div>
+
+          <a
+            href={z7firma.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-cyan-400 text-gray-950 font-semibold rounded-lg hover:bg-cyan-300 transition-colors duration-200"
+          >
+            Visitar z7firma.com
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+
+        <div class="lg:col-span-2">
+          <p class="text-xs font-mono text-gray-500 mb-4">Funcionalidades</p>
+          <ul class="space-y-3">
+            {z7firma.features.map((f) => (
+              <li class="flex gap-3 text-sm text-gray-300">
+                <span class="text-cyan-400 shrink-0">✓</span>
+                <span>{f}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- ── Proyectos en la empresa ── -->
+    <div class="mb-6" data-fade-left>
+      <h3 class="text-xl font-bold text-white">Proyectos en Hardsoft Ecuador</h3>
+      <p class="text-gray-500 text-sm mt-1">
+        Proyectos de la empresa donde trabajo, en los que participé como desarrollador full stack.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-16">
+      {companyProjects.map((project, i) => (
+        <article data-fade style={`--delay: ${i * 0.08}s`} class:list={["group flex flex-col bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-cyan-400/40 transition-all duration-300 hover:-translate-y-1", project.wide && "md:col-span-2 md:p-8"]}>
+          <div class="flex items-start justify-between mb-4">
+            <span class="text-3xl">{project.emoji}</span>
+            {project.type && (
+              <span class="text-xs font-mono text-cyan-400 bg-cyan-400/10 px-2 py-1 rounded border border-cyan-400/20">
+                {project.type}
+              </span>
+            )}
+          </div>
+          <p class="text-xs font-mono text-gray-500 mb-1">{project.subtitle}</p>
+          <h4 class="text-white font-bold text-xl mb-1 group-hover:text-cyan-400 transition-colors duration-200">
+            {project.name}
+          </h4>
+          {project.role && <p class="text-cyan-400 text-sm mb-3">{project.role}</p>}
+          <p class:list={["text-gray-400 text-sm leading-relaxed mb-5 mt-2", !project.highlights && "flex-1"]}>{project.description}</p>
+
+          {project.highlights && (
+            <ul class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-2.5 mb-6 flex-1">
+              {project.highlights.map((h) => (
+                <li class="flex gap-2 text-sm text-gray-300 leading-relaxed">
+                  <span class="text-cyan-400 shrink-0">✓</span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <div class="flex flex-wrap gap-2 mb-5">
+            {project.tech.map((t) => (
+              <span class="text-xs font-mono text-cyan-400/80 bg-cyan-400/5 px-2 py-1 rounded border border-cyan-400/10">
+                {t}
+              </span>
+            ))}
+          </div>
+
+          <div class="flex flex-wrap gap-4 pt-4 border-t border-gray-800">
+            {project.links.length === 0 && (
+              <span class="text-sm text-gray-500">Sistema interno · sin acceso público</span>
+            )}
+            {project.links.map((link) => (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-sm text-gray-300 hover:text-cyan-400 transition-colors duration-200"
+              >
+                {link.label} ↗
+              </a>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- ── Otros proyectos ── -->
+    <div class="mb-6" data-fade-left>
+      <h3 class="text-xl font-bold text-white">Otros proyectos</h3>
+    </div>
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-      {projects.map((project, i) => (
+      {otherProjects.map((project, i) => (
         <article data-fade style={`--delay: ${i * 0.08}s`} class="group flex flex-col bg-gray-900 rounded-xl p-6 border border-gray-800 hover:border-cyan-400/40 transition-all duration-300 hover:-translate-y-1">
           <div class="flex items-start justify-between mb-4">
             <span class="text-3xl">{project.emoji}</span>
-            <div class="flex items-center gap-2">
-              {project.featured && (
-                <span class="text-xs font-mono text-cyan-400 bg-cyan-400/10 px-2 py-1 rounded border border-cyan-400/20">
-                  destacado
-                </span>
-              )}
-              {project.url && (
-                <a
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-gray-500 hover:text-cyan-400 transition-colors duration-200 text-xl leading-none"
-                  title="Ver sitio en vivo"
-                >
-                  ↗
-                </a>
-              )}
-            </div>
+            {project.links.map((link) => (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-500 hover:text-cyan-400 transition-colors duration-200 text-xl leading-none"
+                title={link.label}
+              >
+                ↗
+              </a>
+            ))}
           </div>
 
           <p class="text-xs font-mono text-gray-500 mb-1">{project.subtitle}</p>
-          <h3 class="text-white font-bold text-lg mb-3 group-hover:text-cyan-400 transition-colors duration-200">
+          <h4 class="text-white font-bold text-lg mb-3 group-hover:text-cyan-400 transition-colors duration-200">
             {project.name}
-          </h3>
+          </h4>
 
-          <p class="text-gray-400 text-sm leading-relaxed flex-1 mb-5">
-            {project.description}
-          </p>
+          <p class="text-gray-400 text-sm leading-relaxed flex-1 mb-5">{project.description}</p>
 
           <div class="flex flex-wrap gap-2 pt-4 border-t border-gray-800">
             {project.tech.map((t) => (

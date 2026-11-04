@@ -239,6 +239,29 @@ import '../styles/global.css';
         gap: 0.4rem;
       }
 
+      .exp-list {
+        list-style: none;
+        font-size: 0.8rem;
+        color: #475569;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .exp-list li::before {
+        content: "▸ ";
+        color: #22d3ee;
+        font-size: 0.7rem;
+      }
+
+      .group-label {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: #64748b;
+        margin: 1.1rem 0 0.6rem;
+      }
+
       .list-plain li::before {
         content: "▸ ";
         color: #22d3ee;
@@ -329,12 +352,14 @@ import '../styles/global.css';
       <header class="cv-header">
         <div>
           <h1>Said Carrillo</h1>
-          <p class="title">Full Stack Developer</p>
+          <p class="title">Full Stack Developer · Web &amp; Mobile</p>
+          <p style="color:#94a3b8;font-size:0.82rem;margin-top:0.3rem;">Ibarra, Ecuador · Tecnólogo Superior en Desarrollo de Software</p>
         </div>
         <ul class="contact-list">
           <li><a href="mailto:saidcarrillo.job@gmail.com">saidcarrillo.job@gmail.com</a></li>
-          <li><a href="https://linkedin.com/in/saidCarrillo" target="_blank">linkedin.com/in/saidCarrillo</a></li>
-          <li><a href="https://portafolio.xo.je" target="_blank">portafolio.xo.je</a></li>
+          <li><a href="https://www.linkedin.com/in/saidCarrillo/" target="_blank">linkedin.com/in/saidCarrillo</a></li>
+          <li><a href="https://github.com/saidscv23" target="_blank">github.com/saidscv23</a></li>
+          <li><a href="https://saidscv.vercel.app/" target="_blank">saidscv.vercel.app</a></li>
         </ul>
       </header>
 
@@ -348,11 +373,31 @@ import '../styles/global.css';
           <div class="section">
             <p class="section-title">Perfil Profesional</p>
             <p class="summary">
-              Desarrollador Full Stack con experiencia en sistemas web en producción, 
-              arquitectura MVC, despliegue en servidores Apache e IIS y proyectos con Laravel. 
-              Trabajo enfocado en <strong>rendimiento, seguridad y escalabilidad</strong>, 
-              con experiencia en entornos institucionales y proyectos reales para clientes.
+              Desarrollador Full Stack con experiencia en aplicaciones web y móviles, sistemas
+              empresariales y <strong>facturación electrónica integrada con el SRI</strong>.
+              Trabajo con Laravel, Flutter y MySQL, y administro servidores, hosting, dominios y
+              bases de datos en producción. Creador de <strong>Z7Firma</strong>, mi plataforma
+              propia de facturación electrónica.
             </p>
+          </div>
+
+          <!-- Experiencia -->
+          <div class="section">
+            <p class="section-title">Experiencia</p>
+            <div class="project">
+              <div class="project-header">
+                <span class="project-name">Desarrollador Full Stack – Hardsoft Ecuador</span>
+                <span class="project-link">Actual</span>
+              </div>
+              <ul class="exp-list">
+                <li>Mantenimiento de sistemas de facturación electrónica para ~90 clientes: integración con el SRI, XML, PDF-RIDE y autorización de comprobantes.</li>
+                <li>Desarrollo completo de las apps móviles RAVER y Mi CanchaYa.</li>
+                <li>Principal contribuidor (+110 commits) de la intranet de gestión de clientes en Laravel 12.</li>
+                <li>Desarrollo y mantenimiento de aplicaciones web: nuevas funcionalidades, optimización, corrección de errores y pruebas.</li>
+                <li>Administración de hosting, cPanel, dominios, Apache, IIS, bases de datos y despliegues.</li>
+                <li>Mantenimiento de webs institucionales, monitoreo, soporte e incidencias.</li>
+              </ul>
+            </div>
           </div>
 
           <!-- Proyectos -->
@@ -361,13 +406,82 @@ import '../styles/global.css';
 
             <div class="project">
               <div class="project-header">
-                <span class="project-name">🛒 NEXASTORE – Plataforma de Ventas</span>
+                <span class="project-name">🧾 Z7Firma – Proyecto propio</span>
+                <a href="https://www.z7firma.com" class="project-link">z7firma.com ↗</a>
               </div>
-              <p class="project-subtitle">Sistema web de gestión comercial en producción</p>
+              <p class="project-subtitle">Plataforma de facturación electrónica para Ecuador (SaaS)</p>
               <p class="project-desc">
-                Control de inventario, clientes, ventas y reportes. Sistema completo
-                desarrollado con arquitectura MVC y desplegado en entorno real.
+                Emisión de comprobantes electrónicos integrada con el SRI, gestión de clientes,
+                establecimientos y puntos de emisión, reportes de ventas, planes y suscripciones.
               </p>
+              <div class="tech-tags">
+                <span class="tag">SRI</span>
+                <span class="tag">XML</span>
+                <span class="tag">PDF-RIDE</span>
+                <span class="tag">Suscripciones</span>
+              </div>
+            </div>
+
+            <div class="project">
+              <div class="project-header">
+                <span class="project-name">🗂️ Intranet de Gestión de Clientes</span>
+              </div>
+              <p class="project-subtitle">Proyecto de Hardsoft Ecuador · Principal contribuidor (+110 commits)</p>
+              <p class="project-desc">
+                Intranet en Laravel 12 para gestionar clientes, facturación, pagos, licencias y servicios
+                web, con dashboard de alertas de vencimiento, control de acceso por roles, tablas
+                optimizadas del lado del servidor y una arquitectura basada en Services y Form Requests.
+              </p>
+              <div class="tech-tags">
+                <span class="tag">Laravel 12</span>
+                <span class="tag">PHP 8.2</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Tailwind</span>
+                <span class="tag">Alpine.js</span>
+                <span class="tag">DataTables</span>
+              </div>
+            </div>
+
+            <div class="project">
+              <div class="project-header">
+                <span class="project-name">🎉 RAVER – App de eventos y lugares</span>
+                <a href="https://raverapp.com/" class="project-link">raverapp.com ↗</a>
+              </div>
+              <p class="project-subtitle">Proyecto de Hardsoft Ecuador · Desarrollo completo</p>
+              <p class="project-desc">
+                Descubrimiento de bares, discotecas y eventos con mapa interactivo, geolocalización,
+                reportes comunitarios, votaciones y sorteos.
+              </p>
+              <div class="tech-tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">Laravel</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">API REST</span>
+              </div>
+            </div>
+
+            <div class="project">
+              <div class="project-header">
+                <span class="project-name">🏐 Mi CanchaYa – App de Ecuavóley</span>
+                <a href="https://micanchaya.hardsoftecuador.com/" class="project-link">micanchaya.hardsoftecuador.com ↗</a>
+              </div>
+              <p class="project-subtitle">Proyecto de Hardsoft Ecuador · Desarrollo completo · Google Play</p>
+              <p class="project-desc">
+                Marcador, gestión de partidos, equipos, jugadores, historial y estadísticas desde el celular.
+              </p>
+              <div class="tech-tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">Firebase</span>
+              </div>
+            </div>
+
+            <p class="group-label">Otros proyectos</p>
+
+            <div class="project">
+              <div class="project-header">
+                <span class="project-name">🛒 NEXASTORE – Plataforma de ventas</span>
+              </div>
+              <p class="project-desc">Productos, inventario, clientes, ventas y reportes.</p>
               <div class="tech-tags">
                 <span class="tag">PHP</span>
                 <span class="tag">JavaScript</span>
@@ -379,59 +493,25 @@ import '../styles/global.css';
 
             <div class="project">
               <div class="project-header">
-                <span class="project-name">🍽️ Sistema Web para Restaurante</span>
+                <span class="project-name">🍽️ Sistema para restaurante y 🏢 Sistema empresarial Laravel</span>
               </div>
-              <p class="project-subtitle">Gestión de pedidos, cocina y reportes</p>
-              <p class="project-desc">
-                Interfaz dinámica con actualizaciones en tiempo real mediante AJAX.
-                Módulos de cocina, caja y reportes diarios integrados.
-              </p>
+              <p class="project-desc">Pedidos, cocina y reportes con AJAX; clientes, facturación y pagos con Laravel y Blade.</p>
               <div class="tech-tags">
                 <span class="tag">PHP</span>
+                <span class="tag">Laravel</span>
                 <span class="tag">MySQL</span>
-                <span class="tag">AJAX</span>
                 <span class="tag">jQuery</span>
               </div>
             </div>
 
             <div class="project">
               <div class="project-header">
-                <span class="project-name">🏢 Sistema Empresarial (Laravel)</span>
+                <span class="project-name">🌐 Livingood y Electrovolt – Sitios web</span>
+                <span>
+                  <a href="https://livingood.xo.je" class="project-link">livingood.xo.je ↗</a>
+                  <a href="https://electrovolt.xo.je" class="project-link">electrovolt.xo.je ↗</a>
+                </span>
               </div>
-              <p class="project-subtitle">Gestión de clientes, facturación y pagos</p>
-              <p class="project-desc">
-                Plataforma corporativa desarrollada en Laravel con arquitectura MVC robusta,
-                vistas Blade y separación clara de capas de negocio.
-              </p>
-              <div class="tech-tags">
-                <span class="tag">Laravel</span>
-                <span class="tag">PHP</span>
-                <span class="tag">MySQL</span>
-                <span class="tag">Blade</span>
-                <span class="tag">MVC</span>
-              </div>
-            </div>
-
-            <div class="project">
-              <div class="project-header">
-                <span class="project-name">🌐 Livingood – Constructora</span>
-                <a href="https://livingood.xo.je" class="project-link">livingood.xo.je ↗</a>
-              </div>
-              <p class="project-subtitle">Sitio web corporativo responsive</p>
-              <div class="tech-tags">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">Tailwind</span>
-                <span class="tag">JavaScript</span>
-              </div>
-            </div>
-
-            <div class="project">
-              <div class="project-header">
-                <span class="project-name">⚡ Electrovolt – Electricista</span>
-                <a href="https://electrovolt.xo.je" class="project-link">electrovolt.xo.je ↗</a>
-              </div>
-              <p class="project-subtitle">Sitio web profesional con catálogo de servicios</p>
               <div class="tech-tags">
                 <span class="tag">HTML</span>
                 <span class="tag">CSS</span>
@@ -455,21 +535,50 @@ import '../styles/global.css';
               <div class="skill-items">
                 <span class="skill-item">PHP</span>
                 <span class="skill-item">Laravel</span>
-                <span class="skill-item">MySQL</span>
+                <span class="skill-item">Node.js</span>
                 <span class="skill-item">MVC</span>
-                <span class="skill-item">REST APIs</span>
+                <span class="skill-item">API REST</span>
               </div>
             </div>
 
             <div class="skill-group">
               <p class="skill-category">Frontend</p>
               <div class="skill-items">
-                <span class="skill-item">JavaScript</span>
-                <span class="skill-item">jQuery</span>
-                <span class="skill-item">AJAX</span>
                 <span class="skill-item">HTML5</span>
                 <span class="skill-item">CSS3</span>
+                <span class="skill-item">JavaScript</span>
+                <span class="skill-item">Bootstrap</span>
                 <span class="skill-item">Tailwind</span>
+                <span class="skill-item">Alpine.js</span>
+                <span class="skill-item">jQuery</span>
+                <span class="skill-item">AJAX</span>
+                <span class="skill-item">Blade</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <p class="skill-category">Móvil</p>
+              <div class="skill-items">
+                <span class="skill-item">Flutter</span>
+                <span class="skill-item">Firebase</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <p class="skill-category">Facturación electrónica</p>
+              <div class="skill-items">
+                <span class="skill-item">SRI</span>
+                <span class="skill-item">XML</span>
+                <span class="skill-item">PDF-RIDE</span>
+              </div>
+            </div>
+
+            <div class="skill-group">
+              <p class="skill-category">Bases de datos</p>
+              <div class="skill-items">
+                <span class="skill-item">MySQL</span>
+                <span class="skill-item">SQL</span>
+                <span class="skill-item">Firebase</span>
               </div>
             </div>
 
@@ -478,8 +587,11 @@ import '../styles/global.css';
               <div class="skill-items">
                 <span class="skill-item">Apache</span>
                 <span class="skill-item">IIS</span>
-                <span class="skill-item">Linux</span>
                 <span class="skill-item">cPanel</span>
+                <span class="skill-item">Hosting</span>
+                <span class="skill-item">Dominios</span>
+                <span class="skill-item">Windows</span>
+                <span class="skill-item">Linux</span>
               </div>
             </div>
 
@@ -488,8 +600,8 @@ import '../styles/global.css';
               <div class="skill-items">
                 <span class="skill-item">Git</span>
                 <span class="skill-item">GitHub</span>
-                <span class="skill-item">AdminLTE</span>
-                <span class="skill-item">Blade</span>
+                <span class="skill-item">VS Code</span>
+                <span class="skill-item">PowerShell</span>
               </div>
             </div>
           </div>
@@ -498,11 +610,11 @@ import '../styles/global.css';
           <div class="section">
             <p class="section-title">Fortalezas</p>
             <ul class="list-plain">
-              <li>Sistemas en producción</li>
-              <li>Seguridad y rendimiento</li>
-              <li>Arquitectura escalable</li>
-              <li>Entornos institucionales</li>
-              <li>Atención al detalle</li>
+              <li>Ciclo completo: desarrollo a producción</li>
+              <li>Facturación electrónica Ecuador</li>
+              <li>Apps web y móviles</li>
+              <li>Infraestructura y servidores</li>
+              <li>Resolución de incidencias</li>
             </ul>
           </div>
 
